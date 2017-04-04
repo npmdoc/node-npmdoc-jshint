@@ -70,6 +70,33 @@
 
         </li>
 
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jshint.name_stack">
+            function <span class="apidocSignatureSpan">jshint.</span>name_stack
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jshint.</span>lex</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jshint.</span>name_stack.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jshint.</span>style</span>
+
+        </li>
+
     </ol></li>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.jshint.JSHINT">module jshint.JSHINT</a><ol>
@@ -106,6 +133,91 @@
             <a class="apidocElementLiA" href="#apidoc.element.jshint.JSHINT.jshint">
             function <span class="apidocSignatureSpan">jshint.JSHINT.</span>jshint
             <span class="apidocSignatureSpan">(s, o, g)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.jshint.lex">module jshint.lex</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jshint.lex.Lexer">
+            function <span class="apidocSignatureSpan">jshint.lex.</span>Lexer
+            <span class="apidocSignatureSpan">(source)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">jshint.lex.</span>Context</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.jshint.name_stack">module jshint.name_stack</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jshint.name_stack.name_stack">
+            function <span class="apidocSignatureSpan">jshint.</span>name_stack
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.jshint.name_stack.prototype">module jshint.name_stack.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jshint.name_stack.prototype.infer">
+            function <span class="apidocSignatureSpan">jshint.name_stack.prototype.</span>infer
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jshint.name_stack.prototype.pop">
+            function <span class="apidocSignatureSpan">jshint.name_stack.prototype.</span>pop
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jshint.name_stack.prototype.push">
+            function <span class="apidocSignatureSpan">jshint.name_stack.prototype.</span>push
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jshint.name_stack.prototype.set">
+            function <span class="apidocSignatureSpan">jshint.name_stack.prototype.</span>set
+            <span class="apidocSignatureSpan">(token)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.jshint.style">module jshint.style</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.jshint.style.register">
+            function <span class="apidocSignatureSpan">jshint.style.</span>register
+            <span class="apidocSignatureSpan">(linter)</span>
             </a>
 
         </li>
@@ -300,6 +412,27 @@
     errorAt.apply(null ...</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.jshint.name_stack" id="apidoc.element.jshint.name_stack">
+        function <span class="apidocSignatureSpan">jshint.</span>name_stack
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function NameStack() {
+  this._stack = [];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
 
 
 </div>
@@ -774,6 +907,364 @@
 
   lex.on(&#x22;error&#x22;, function(ev) {
     errorAt.apply(null ...</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.jshint.lex" id="apidoc.module.jshint.lex">module jshint.lex</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.jshint.lex.Lexer" id="apidoc.element.jshint.lex.Lexer">
+        function <span class="apidocSignatureSpan">jshint.lex.</span>Lexer
+        <span class="apidocSignatureSpan">(source)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Lexer(source) {
+  var lines = source;
+
+  if (typeof lines === &#x22;string&#x22;) {
+    lines = lines
+      .replace(/\r\n/g, &#x22;\n&#x22;)
+      .replace(/\r/g, &#x22;\n&#x22;)
+      .split(&#x22;\n&#x22;);
+  }
+
+  // If the first line is a shebang (#!), make it a blank and move on.
+  // Shebangs are used by Node scripts.
+
+  if (lines[0] &#x26;&#x26; lines[0].substr(0, 2) === &#x22;#!&#x22;) {
+    if (lines[0].indexOf(&#x22;node&#x22;) !== -1) {
+      state.option.node = true;
+    }
+    lines[0] = &#x22;&#x22;;
+  }
+
+  this.emitter = new events.EventEmitter();
+  this.source = source;
+  this.setLines(lines);
+  this.prereg = true;
+
+  this.line = 0;
+  this.char = 1;
+  this.from = 1;
+  this.input = &#x22;&#x22;;
+  this.inComment = false;
+  this.context = [];
+  this.templateStarts = [];
+
+  for (var i = 0; i &#x3c; state.option.indent; i += 1) {
+    state.tab += &#x22; &#x22;;
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.jshint.name_stack" id="apidoc.module.jshint.name_stack">module jshint.name_stack</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.jshint.name_stack.name_stack" id="apidoc.element.jshint.name_stack.name_stack">
+        function <span class="apidocSignatureSpan">jshint.</span>name_stack
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function NameStack() {
+  this._stack = [];
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.jshint.name_stack.prototype" id="apidoc.module.jshint.name_stack.prototype">module jshint.name_stack.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.jshint.name_stack.prototype.infer" id="apidoc.element.jshint.name_stack.prototype.infer">
+        function <span class="apidocSignatureSpan">jshint.name_stack.prototype.</span>infer
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">infer = function () {
+  var nameToken = this._stack[this.length - 1];
+  var prefix = &#x22;&#x22;;
+  var type;
+
+  // During expected operation, the topmost entry on the stack will only
+  // reflect the current function&#x27;s name when the function is declared without
+  // the `function` keyword (i.e. for in-line accessor methods). In other
+  // cases, the `function` expression itself will introduce an empty entry on
+  // the top of the stack, and this should be ignored.
+  if (!nameToken || nameToken.type === &#x22;class&#x22;) {
+    nameToken = this._stack[this.length - 2];
+  }
+
+  if (!nameToken) {
+    return &#x22;(empty)&#x22;;
+  }
+
+  type = nameToken.type;
+
+  if (type !== &#x22;(string)&#x22; &#x26;&#x26; type !== &#x22;(number)&#x22; &#x26;&#x26; type !== &#x22;(identifier)&#x22; &#x26;&#x26; type !== &#x22;default&#x22;) {
+    return &#x22;(expression)&#x22;;
+  }
+
+  if (nameToken.accessorType) {
+    prefix = nameToken.accessorType + &#x22; &#x22;;
+  }
+
+  return prefix + nameToken.value;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.jshint.name_stack.prototype.pop" id="apidoc.element.jshint.name_stack.prototype.pop">
+        function <span class="apidocSignatureSpan">jshint.name_stack.prototype.</span>pop
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">pop = function () {
+  this._stack.pop();
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+},
+
+pushContext: function(ctxType) {
+  this.context.push({ type: ctxType });
+},
+
+popContext: function() {
+  return this.context.<span class="apidocCodeKeywordSpan">pop</span>();
+},
+
+isContext: function(context) {
+  return this.context.length &#x3e; 0 &#x26;&#x26; this.context[this.context.length - 1] === context;
+},
+
+currentContext: function() {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.jshint.name_stack.prototype.push" id="apidoc.element.jshint.name_stack.prototype.push">
+        function <span class="apidocSignatureSpan">jshint.name_stack.prototype.</span>push
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">push = function () {
+  this._stack.push(null);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+// environment state.
+
+function asyncTrigger() {
+  var _checks = [];
+
+  return {
+push: function(fn) {
+  _checks.<span class="apidocCodeKeywordSpan">push</span>(fn);
+},
+
+check: function() {
+  for (var check = 0; check &#x3c; _checks.length; ++check) {
+    _checks[check]();
+  }
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.jshint.name_stack.prototype.set" id="apidoc.element.jshint.name_stack.prototype.set">
+        function <span class="apidocSignatureSpan">jshint.name_stack.prototype.</span>set
+        <span class="apidocSignatureSpan">(token)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">set = function (token) {
+  this._stack[this.length - 1] = token;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.jshint.style" id="apidoc.module.jshint.style">module jshint.style</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.jshint.style.register" id="apidoc.element.jshint.style.register">
+        function <span class="apidocSignatureSpan">jshint.style.</span>register
+        <span class="apidocSignatureSpan">(linter)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">register = function (linter) {
+  // Check for properties named __proto__. This special property was
+  // deprecated and then re-introduced for ES6.
+
+  linter.on(&#x22;Identifier&#x22;, function style_scanProto(data) {
+    if (linter.getOption(&#x22;proto&#x22;)) {
+      return;
+    }
+
+    if (data.name === &#x22;__proto__&#x22;) {
+      linter.warn(&#x22;W103&#x22;, {
+        line: data.line,
+        char: data.char,
+        data: [ data.name, &#x22;6&#x22; ]
+      });
+    }
+  });
+
+  // Check for properties named __iterator__. This is a special property
+  // available only in browsers with JavaScript 1.7 implementation, but
+  // it is deprecated for ES6
+
+  linter.on(&#x22;Identifier&#x22;, function style_scanIterator(data) {
+    if (linter.getOption(&#x22;iterator&#x22;)) {
+      return;
+    }
+
+    if (data.name === &#x22;__iterator__&#x22;) {
+      linter.warn(&#x22;W103&#x22;, {
+        line: data.line,
+        char: data.char,
+        data: [ data.name ]
+      });
+    }
+  });
+
+  // Check that all identifiers are using camelCase notation.
+  // Exceptions: names like MY_VAR and _myVar.
+
+  linter.on(&#x22;Identifier&#x22;, function style_scanCamelCase(data) {
+    if (!linter.getOption(&#x22;camelcase&#x22;)) {
+      return;
+    }
+
+    if (data.name.replace(/^_+|_+$/g, &#x22;&#x22;).indexOf(&#x22;_&#x22;) &#x3e; -1 &#x26;&#x26; !data.name.match(/^[A-Z0-9_]*$/)) {
+      linter.warn(&#x22;W106&#x22;, {
+        line: data.line,
+        char: data.char,
+        data: [ data.name ]
+      });
+    }
+  });
+
+  // Enforce consistency in style of quoting.
+
+  linter.on(&#x22;String&#x22;, function style_scanQuotes(data) {
+    var quotmark = linter.getOption(&#x22;quotmark&#x22;);
+    var code;
+
+    if (!quotmark) {
+      return;
+    }
+
+    // If quotmark is set to &#x27;single&#x27; warn about all double-quotes.
+
+    if (quotmark === &#x22;single&#x22; &#x26;&#x26; data.quote !== &#x22;&#x27;&#x22;) {
+      code = &#x22;W109&#x22;;
+    }
+
+    // If quotmark is set to &#x27;double&#x27; warn about all single-quotes.
+
+    if (quotmark === &#x22;double&#x22; &#x26;&#x26; data.quote !== &#x22;\&#x22;&#x22;) {
+      code = &#x22;W108&#x22;;
+    }
+
+    // If quotmark is set to true, remember the first quotation style
+    // and then warn about all others.
+
+    if (quotmark === true) {
+      if (!linter.getCache(&#x22;quotmark&#x22;)) {
+        linter.setCache(&#x22;quotmark&#x22;, data.quote);
+      }
+
+      if (linter.getCache(&#x22;quotmark&#x22;) !== data.quote) {
+        code = &#x22;W110&#x22;;
+      }
+    }
+
+    if (code) {
+      linter.warn(code, {
+        line: data.line,
+        char: data.char,
+      });
+    }
+  });
+
+  linter.on(&#x22;Number&#x22;, function style_scanNumbers(data) {
+    if (data.value.charAt(0) === &#x22;.&#x22;) {
+      // Warn about a leading decimal point.
+      linter.warn(&#x22;W008&#x22;, {
+        line: data.line,
+        char: data.char,
+        data: [ data.value ]
+      });
+    }
+
+    if (data.value.substr(data.value.length - 1) === &#x22;.&#x22;) {
+      // Warn about a trailing decimal point.
+      linter.warn(&#x22;W047&#x22;, {
+        line: data.line,
+        char: data.char,
+        data: [ data.value ]
+      });
+    }
+
+    if (/^00+/.test(data.value)) {
+      // Multiple leading zeroes.
+      linter.warn(&#x22;W046&#x22;, {
+        line: data.line,
+        char: data.char,
+        data: [ data.value ]
+      });
+    }
+  });
+
+  // Warn about script URLs.
+
+  linter.on(&#x22;String&#x22;, function style_scanJavaScriptURLs(data) {
+    var re = /^(?:javascript|jscript|ecmascript|vbscript|livescript)\s*:/i;
+
+    if (linter.getOption(&#x22;scripturl&#x22;)) {
+      return;
+    }
+
+    if (re.test(data.value)) {
+      linter.warn(&#x22;W107&#x22;, {
+        line: data.line,
+        char: data.char
+      });
+    }
+  });
+}</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 

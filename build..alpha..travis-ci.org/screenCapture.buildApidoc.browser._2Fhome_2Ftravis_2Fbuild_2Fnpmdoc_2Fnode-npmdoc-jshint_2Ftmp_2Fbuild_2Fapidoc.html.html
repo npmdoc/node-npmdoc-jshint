@@ -1,4 +1,4 @@
-<div class="apidocDiv">
+<html><head></head><body><div class="apidocDiv">
 <style>
 /*csslint
 */
@@ -47,17 +47,10 @@
 }
 </style>
 <h1>api documentation for
-    <a
-
-        href="http://jshint.com/"
-
-    >jshint (v2.9.4)</a>
+    <a href="http://jshint.com/">jshint (v2.9.4)</a>
 </h1>
 <h4>Static analysis tool for JavaScript</h4>
-<div class="apidocSectionDiv"><a
-    href="#apidoc.tableOfContents"
-    id="apidoc.tableOfContents"
-><h1>table of contents</h1></a><ol>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
 
     <li class="apidocModuleLi"><a href="#apidoc.module.jshint">module jshint</a><ol>
 
@@ -246,14 +239,14 @@
   o = _.clone(o);
   state.reset();
 
-  if (o &#x26;&#x26; o.scope) {
+  if (o &amp;&amp; o.scope) {
     JSHINT.scope = o.scope;
   } else {
     JSHINT.errors = [];
     JSHINT.undefs = [];
     JSHINT.internals = [];
     JSHINT.blacklist = {};
-    JSHINT.scope = &#x22;(main)&#x22;;
+    JSHINT.scope = "(main)";
   }
 
   predefined = Object.create(null);
@@ -269,7 +262,7 @@
     if (!obj)
       return;
 
-    if (!Array.isArray(obj) &#x26;&#x26; typeof obj === &#x22;object&#x22;)
+    if (!Array.isArray(obj) &amp;&amp; typeof obj === "object")
       obj = Object.keys(obj);
 
     obj.forEach(cb);
@@ -279,7 +272,7 @@
     each(o.predef || null, function(item) {
       var slice, prop;
 
-      if (item[0] === &#x22;-&#x22;) {
+      if (item[0] === "-") {
         slice = item.slice(1);
         JSHINT.blacklist[slice] = slice;
         // remove from predefined if there
@@ -298,7 +291,7 @@
     delete o.exported;
 
     optionKeys = Object.keys(o);
-    for (x = 0; x &#x3c; optionKeys.length; x++) {
+    for (x = 0; x &lt; optionKeys.length; x++) {
       if (/^-W\d{3}$/g.test(optionKeys[x])) {
         newIgnoredObj[optionKeys[x].slice(1)] = true;
       } else {
@@ -317,19 +310,19 @@
   indent = 1;
 
   var scopeManagerInst = scopeManager(state, predefined, exported, declared);
-  scopeManagerInst.on(&#x22;warning&#x22;, function(ev) {
+  scopeManagerInst.on("warning", function(ev) {
     warning.apply(null, [ ev.code, ev.token].concat(ev.data));
   });
 
-  scopeManagerInst.on(&#x22;error&#x22;, function(ev) {
+  scopeManagerInst.on("error", function(ev) {
     error.apply(null, [ ev.code, ev.token ].concat(ev.data));
   });
 
-  state.funct = functor(&#x22;(global)&#x22;, null, {
-    &#x22;(global)&#x22;    : true,
-    &#x22;(scope)&#x22;     : scopeManagerInst,
-    &#x22;(comparray)&#x22; : arrayComprehension(),
-    &#x22;(metrics)&#x22;   : createMetrics(state.tokens.next)
+  state.funct = functor("(global)", null, {
+    "(global)"    : true,
+    "(scope)"     : scopeManagerInst,
+    "(comparray)" : arrayComprehension(),
+    "(metrics)"   : createMetrics(state.tokens.next)
   });
 
   functions = [state.funct];
@@ -340,8 +333,8 @@
   inblock = false;
   lookahead = [];
 
-  if (!isString(s) &#x26;&#x26; !Array.isArray(s)) {
-    errorAt(&#x22;E004&#x22;, 0);
+  if (!isString(s) &amp;&amp; !Array.isArray(s)) {
+    errorAt("E004", 0);
     return false;
   }
 
@@ -367,7 +360,7 @@
     },
 
     on: function(names, listener) {
-      names.split(&#x22; &#x22;).forEach(function(name) {
+      names.split(" ").forEach(function(name) {
         emitter.on(name, listener);
       }.bind(this));
     }
@@ -378,9 +371,9 @@
     func(api);
   });
 
-  state.tokens.prev = state.tokens.curr = state.tokens.next = state.syntax[&#x22;(begin)&#x22;];
+  state.tokens.prev = state.tokens.curr = state.tokens.next = state.syntax["(begin)"];
 
-  if (o &#x26;&#x26; o.ignoreDelimiters) {
+  if (o &amp;&amp; o.ignoreDelimiters) {
 
     if (!Array.isArray(o.ignoreDelimiters)) {
       o.ignoreDelimiters = [o.ignoreDelimiters];
@@ -391,24 +384,24 @@
           return;
 
       reIgnoreStr = escapeRegex(delimiterPair.start) +
-                    &#x22;[\\s\\S]*?&#x22; +
+                    "[\\s\\S]*?" +
                     escapeRegex(delimiterPair.end);
 
-      reIgnore = new RegExp(reIgnoreStr, &#x22;ig&#x22;);
+      reIgnore = new RegExp(reIgnoreStr, "ig");
 
       s = s.replace(reIgnore, function(match) {
-        return match.replace(/./g, &#x22; &#x22;);
+        return match.replace(/./g, " ");
       });
     });
   }
 
   lex = new Lexer(s);
 
-  lex.on(&#x22;warning&#x22;, function(ev) {
+  lex.on("warning", function(ev) {
     warningAt.apply(null, [ ev.code, ev.line, ev.character].concat(ev.data));
   });
 
-  lex.on(&#x22;error&#x22;, function(ev) {
+  lex.on("error", function(ev) {
     errorAt.apply(null ...</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -457,14 +450,14 @@
   o = _.clone(o);
   state.reset();
 
-  if (o &#x26;&#x26; o.scope) {
+  if (o &amp;&amp; o.scope) {
     JSHINT.scope = o.scope;
   } else {
     JSHINT.errors = [];
     JSHINT.undefs = [];
     JSHINT.internals = [];
     JSHINT.blacklist = {};
-    JSHINT.scope = &#x22;(main)&#x22;;
+    JSHINT.scope = "(main)";
   }
 
   predefined = Object.create(null);
@@ -480,7 +473,7 @@
     if (!obj)
       return;
 
-    if (!Array.isArray(obj) &#x26;&#x26; typeof obj === &#x22;object&#x22;)
+    if (!Array.isArray(obj) &amp;&amp; typeof obj === "object")
       obj = Object.keys(obj);
 
     obj.forEach(cb);
@@ -490,7 +483,7 @@
     each(o.predef || null, function(item) {
       var slice, prop;
 
-      if (item[0] === &#x22;-&#x22;) {
+      if (item[0] === "-") {
         slice = item.slice(1);
         JSHINT.blacklist[slice] = slice;
         // remove from predefined if there
@@ -509,7 +502,7 @@
     delete o.exported;
 
     optionKeys = Object.keys(o);
-    for (x = 0; x &#x3c; optionKeys.length; x++) {
+    for (x = 0; x &lt; optionKeys.length; x++) {
       if (/^-W\d{3}$/g.test(optionKeys[x])) {
         newIgnoredObj[optionKeys[x].slice(1)] = true;
       } else {
@@ -528,19 +521,19 @@
   indent = 1;
 
   var scopeManagerInst = scopeManager(state, predefined, exported, declared);
-  scopeManagerInst.on(&#x22;warning&#x22;, function(ev) {
+  scopeManagerInst.on("warning", function(ev) {
     warning.apply(null, [ ev.code, ev.token].concat(ev.data));
   });
 
-  scopeManagerInst.on(&#x22;error&#x22;, function(ev) {
+  scopeManagerInst.on("error", function(ev) {
     error.apply(null, [ ev.code, ev.token ].concat(ev.data));
   });
 
-  state.funct = functor(&#x22;(global)&#x22;, null, {
-    &#x22;(global)&#x22;    : true,
-    &#x22;(scope)&#x22;     : scopeManagerInst,
-    &#x22;(comparray)&#x22; : arrayComprehension(),
-    &#x22;(metrics)&#x22;   : createMetrics(state.tokens.next)
+  state.funct = functor("(global)", null, {
+    "(global)"    : true,
+    "(scope)"     : scopeManagerInst,
+    "(comparray)" : arrayComprehension(),
+    "(metrics)"   : createMetrics(state.tokens.next)
   });
 
   functions = [state.funct];
@@ -551,8 +544,8 @@
   inblock = false;
   lookahead = [];
 
-  if (!isString(s) &#x26;&#x26; !Array.isArray(s)) {
-    errorAt(&#x22;E004&#x22;, 0);
+  if (!isString(s) &amp;&amp; !Array.isArray(s)) {
+    errorAt("E004", 0);
     return false;
   }
 
@@ -578,7 +571,7 @@
     },
 
     on: function(names, listener) {
-      names.split(&#x22; &#x22;).forEach(function(name) {
+      names.split(" ").forEach(function(name) {
         emitter.on(name, listener);
       }.bind(this));
     }
@@ -589,9 +582,9 @@
     func(api);
   });
 
-  state.tokens.prev = state.tokens.curr = state.tokens.next = state.syntax[&#x22;(begin)&#x22;];
+  state.tokens.prev = state.tokens.curr = state.tokens.next = state.syntax["(begin)"];
 
-  if (o &#x26;&#x26; o.ignoreDelimiters) {
+  if (o &amp;&amp; o.ignoreDelimiters) {
 
     if (!Array.isArray(o.ignoreDelimiters)) {
       o.ignoreDelimiters = [o.ignoreDelimiters];
@@ -602,24 +595,24 @@
           return;
 
       reIgnoreStr = escapeRegex(delimiterPair.start) +
-                    &#x22;[\\s\\S]*?&#x22; +
+                    "[\\s\\S]*?" +
                     escapeRegex(delimiterPair.end);
 
-      reIgnore = new RegExp(reIgnoreStr, &#x22;ig&#x22;);
+      reIgnore = new RegExp(reIgnoreStr, "ig");
 
       s = s.replace(reIgnore, function(match) {
-        return match.replace(/./g, &#x22; &#x22;);
+        return match.replace(/./g, " ");
       });
     });
   }
 
   lex = new Lexer(s);
 
-  lex.on(&#x22;warning&#x22;, function(ev) {
+  lex.on("warning", function(ev) {
     warningAt.apply(null, [ ev.code, ev.line, ev.character].concat(ev.data));
   });
 
-  lex.on(&#x22;error&#x22;, function(ev) {
+  lex.on("error", function(ev) {
     errorAt.apply(null ...</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -664,57 +657,57 @@
     data.json = true;
   }
 
-  var impliedGlobals = state.funct[&#x22;(scope)&#x22;].getImpliedGlobals();
-  if (impliedGlobals.length &#x3e; 0) {
+  var impliedGlobals = state.funct["(scope)"].getImpliedGlobals();
+  if (impliedGlobals.length &gt; 0) {
     data.implieds = impliedGlobals;
   }
 
-  if (urls.length &#x3e; 0) {
+  if (urls.length &gt; 0) {
     data.urls = urls;
   }
 
-  globals = state.funct[&#x22;(scope)&#x22;].getUsedOrDefinedGlobals();
-  if (globals.length &#x3e; 0) {
+  globals = state.funct["(scope)"].getUsedOrDefinedGlobals();
+  if (globals.length &gt; 0) {
     data.globals = globals;
   }
 
-  for (i = 1; i &#x3c; functions.length; i += 1) {
+  for (i = 1; i &lt; functions.length; i += 1) {
     f = functions[i];
     fu = {};
 
-    for (j = 0; j &#x3c; functionicity.length; j += 1) {
+    for (j = 0; j &lt; functionicity.length; j += 1) {
       fu[functionicity[j]] = [];
     }
 
-    for (j = 0; j &#x3c; functionicity.length; j += 1) {
+    for (j = 0; j &lt; functionicity.length; j += 1) {
       if (fu[functionicity[j]].length === 0) {
         delete fu[functionicity[j]];
       }
     }
 
-    fu.name = f[&#x22;(name)&#x22;];
-    fu.param = f[&#x22;(params)&#x22;];
-    fu.line = f[&#x22;(line)&#x22;];
-    fu.character = f[&#x22;(character)&#x22;];
-    fu.last = f[&#x22;(last)&#x22;];
-    fu.lastcharacter = f[&#x22;(lastcharacter)&#x22;];
+    fu.name = f["(name)"];
+    fu.param = f["(params)"];
+    fu.line = f["(line)"];
+    fu.character = f["(character)"];
+    fu.last = f["(last)"];
+    fu.lastcharacter = f["(lastcharacter)"];
 
     fu.metrics = {
-      complexity: f[&#x22;(metrics)&#x22;].ComplexityCount,
-      parameters: f[&#x22;(metrics)&#x22;].arity,
-      statements: f[&#x22;(metrics)&#x22;].statementCount
+      complexity: f["(metrics)"].ComplexityCount,
+      parameters: f["(metrics)"].arity,
+      statements: f["(metrics)"].statementCount
     };
 
     data.functions.push(fu);
   }
 
-  var unuseds = state.funct[&#x22;(scope)&#x22;].getUnuseds();
-  if (unuseds.length &#x3e; 0) {
+  var unuseds = state.funct["(scope)"].getUnuseds();
+  if (unuseds.length &gt; 0) {
     data.unused = unuseds;
   }
 
   for (n in member) {
-    if (typeof member[n] === &#x22;number&#x22;) {
+    if (typeof member[n] === "number") {
       data.member = member;
       break;
     }
@@ -743,14 +736,14 @@
   o = _.clone(o);
   state.reset();
 
-  if (o &#x26;&#x26; o.scope) {
+  if (o &amp;&amp; o.scope) {
     JSHINT.scope = o.scope;
   } else {
     JSHINT.errors = [];
     JSHINT.undefs = [];
     JSHINT.internals = [];
     JSHINT.blacklist = {};
-    JSHINT.scope = &#x22;(main)&#x22;;
+    JSHINT.scope = "(main)";
   }
 
   predefined = Object.create(null);
@@ -766,7 +759,7 @@
     if (!obj)
       return;
 
-    if (!Array.isArray(obj) &#x26;&#x26; typeof obj === &#x22;object&#x22;)
+    if (!Array.isArray(obj) &amp;&amp; typeof obj === "object")
       obj = Object.keys(obj);
 
     obj.forEach(cb);
@@ -776,7 +769,7 @@
     each(o.predef || null, function(item) {
       var slice, prop;
 
-      if (item[0] === &#x22;-&#x22;) {
+      if (item[0] === "-") {
         slice = item.slice(1);
         JSHINT.blacklist[slice] = slice;
         // remove from predefined if there
@@ -795,7 +788,7 @@
     delete o.exported;
 
     optionKeys = Object.keys(o);
-    for (x = 0; x &#x3c; optionKeys.length; x++) {
+    for (x = 0; x &lt; optionKeys.length; x++) {
       if (/^-W\d{3}$/g.test(optionKeys[x])) {
         newIgnoredObj[optionKeys[x].slice(1)] = true;
       } else {
@@ -814,19 +807,19 @@
   indent = 1;
 
   var scopeManagerInst = scopeManager(state, predefined, exported, declared);
-  scopeManagerInst.on(&#x22;warning&#x22;, function(ev) {
+  scopeManagerInst.on("warning", function(ev) {
     warning.apply(null, [ ev.code, ev.token].concat(ev.data));
   });
 
-  scopeManagerInst.on(&#x22;error&#x22;, function(ev) {
+  scopeManagerInst.on("error", function(ev) {
     error.apply(null, [ ev.code, ev.token ].concat(ev.data));
   });
 
-  state.funct = functor(&#x22;(global)&#x22;, null, {
-    &#x22;(global)&#x22;    : true,
-    &#x22;(scope)&#x22;     : scopeManagerInst,
-    &#x22;(comparray)&#x22; : arrayComprehension(),
-    &#x22;(metrics)&#x22;   : createMetrics(state.tokens.next)
+  state.funct = functor("(global)", null, {
+    "(global)"    : true,
+    "(scope)"     : scopeManagerInst,
+    "(comparray)" : arrayComprehension(),
+    "(metrics)"   : createMetrics(state.tokens.next)
   });
 
   functions = [state.funct];
@@ -837,8 +830,8 @@
   inblock = false;
   lookahead = [];
 
-  if (!isString(s) &#x26;&#x26; !Array.isArray(s)) {
-    errorAt(&#x22;E004&#x22;, 0);
+  if (!isString(s) &amp;&amp; !Array.isArray(s)) {
+    errorAt("E004", 0);
     return false;
   }
 
@@ -864,7 +857,7 @@
     },
 
     on: function(names, listener) {
-      names.split(&#x22; &#x22;).forEach(function(name) {
+      names.split(" ").forEach(function(name) {
         emitter.on(name, listener);
       }.bind(this));
     }
@@ -875,9 +868,9 @@
     func(api);
   });
 
-  state.tokens.prev = state.tokens.curr = state.tokens.next = state.syntax[&#x22;(begin)&#x22;];
+  state.tokens.prev = state.tokens.curr = state.tokens.next = state.syntax["(begin)"];
 
-  if (o &#x26;&#x26; o.ignoreDelimiters) {
+  if (o &amp;&amp; o.ignoreDelimiters) {
 
     if (!Array.isArray(o.ignoreDelimiters)) {
       o.ignoreDelimiters = [o.ignoreDelimiters];
@@ -888,24 +881,24 @@
           return;
 
       reIgnoreStr = escapeRegex(delimiterPair.start) +
-                    &#x22;[\\s\\S]*?&#x22; +
+                    "[\\s\\S]*?" +
                     escapeRegex(delimiterPair.end);
 
-      reIgnore = new RegExp(reIgnoreStr, &#x22;ig&#x22;);
+      reIgnore = new RegExp(reIgnoreStr, "ig");
 
       s = s.replace(reIgnore, function(match) {
-        return match.replace(/./g, &#x22; &#x22;);
+        return match.replace(/./g, " ");
       });
     });
   }
 
   lex = new Lexer(s);
 
-  lex.on(&#x22;warning&#x22;, function(ev) {
+  lex.on("warning", function(ev) {
     warningAt.apply(null, [ ev.code, ev.line, ev.character].concat(ev.data));
   });
 
-  lex.on(&#x22;error&#x22;, function(ev) {
+  lex.on("error", function(ev) {
     errorAt.apply(null ...</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
@@ -927,21 +920,21 @@
     <li>description and source-code<pre class="apidocCodePre">function Lexer(source) {
   var lines = source;
 
-  if (typeof lines === &#x22;string&#x22;) {
+  if (typeof lines === "string") {
     lines = lines
-      .replace(/\r\n/g, &#x22;\n&#x22;)
-      .replace(/\r/g, &#x22;\n&#x22;)
-      .split(&#x22;\n&#x22;);
+      .replace(/\r\n/g, "\n")
+      .replace(/\r/g, "\n")
+      .split("\n");
   }
 
   // If the first line is a shebang (#!), make it a blank and move on.
   // Shebangs are used by Node scripts.
 
-  if (lines[0] &#x26;&#x26; lines[0].substr(0, 2) === &#x22;#!&#x22;) {
-    if (lines[0].indexOf(&#x22;node&#x22;) !== -1) {
+  if (lines[0] &amp;&amp; lines[0].substr(0, 2) === "#!") {
+    if (lines[0].indexOf("node") !== -1) {
       state.option.node = true;
     }
-    lines[0] = &#x22;&#x22;;
+    lines[0] = "";
   }
 
   this.emitter = new events.EventEmitter();
@@ -952,13 +945,13 @@
   this.line = 0;
   this.char = 1;
   this.from = 1;
-  this.input = &#x22;&#x22;;
+  this.input = "";
   this.inComment = false;
   this.context = [];
   this.templateStarts = [];
 
-  for (var i = 0; i &#x3c; state.option.indent; i += 1) {
-    state.tab += &#x22; &#x22;;
+  for (var i = 0; i &lt; state.option.indent; i += 1) {
+    state.tab += " ";
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
@@ -1002,30 +995,30 @@
     <ul>
     <li>description and source-code<pre class="apidocCodePre">infer = function () {
   var nameToken = this._stack[this.length - 1];
-  var prefix = &#x22;&#x22;;
+  var prefix = "";
   var type;
 
   // During expected operation, the topmost entry on the stack will only
-  // reflect the current function&#x27;s name when the function is declared without
+  // reflect the current function's name when the function is declared without
   // the `function` keyword (i.e. for in-line accessor methods). In other
   // cases, the `function` expression itself will introduce an empty entry on
   // the top of the stack, and this should be ignored.
-  if (!nameToken || nameToken.type === &#x22;class&#x22;) {
+  if (!nameToken || nameToken.type === "class") {
     nameToken = this._stack[this.length - 2];
   }
 
   if (!nameToken) {
-    return &#x22;(empty)&#x22;;
+    return "(empty)";
   }
 
   type = nameToken.type;
 
-  if (type !== &#x22;(string)&#x22; &#x26;&#x26; type !== &#x22;(number)&#x22; &#x26;&#x26; type !== &#x22;(identifier)&#x22; &#x26;&#x26; type !== &#x22;default&#x22;) {
-    return &#x22;(expression)&#x22;;
+  if (type !== "(string)" &amp;&amp; type !== "(number)" &amp;&amp; type !== "(identifier)" &amp;&amp; type !== "default") {
+    return "(expression)";
   }
 
   if (nameToken.accessorType) {
-    prefix = nameToken.accessorType + &#x22; &#x22;;
+    prefix = nameToken.accessorType + " ";
   }
 
   return prefix + nameToken.value;
@@ -1057,7 +1050,7 @@ popContext: function() {
 },
 
 isContext: function(context) {
-  return this.context.length &#x3e; 0 &#x26;&#x26; this.context[this.context.length - 1] === context;
+  return this.context.length &gt; 0 &amp;&amp; this.context[this.context.length - 1] === context;
 },
 
 currentContext: function() {
@@ -1088,7 +1081,7 @@ push: function(fn) {
 },
 
 check: function() {
-  for (var check = 0; check &#x3c; _checks.length; ++check) {
+  for (var check = 0; check &lt; _checks.length; ++check) {
     _checks[check]();
   }
 ...</pre></li>
@@ -1127,16 +1120,16 @@ check: function() {
   // Check for properties named __proto__. This special property was
   // deprecated and then re-introduced for ES6.
 
-  linter.on(&#x22;Identifier&#x22;, function style_scanProto(data) {
-    if (linter.getOption(&#x22;proto&#x22;)) {
+  linter.on("Identifier", function style_scanProto(data) {
+    if (linter.getOption("proto")) {
       return;
     }
 
-    if (data.name === &#x22;__proto__&#x22;) {
-      linter.warn(&#x22;W103&#x22;, {
+    if (data.name === "__proto__") {
+      linter.warn("W103", {
         line: data.line,
         char: data.char,
-        data: [ data.name, &#x22;6&#x22; ]
+        data: [ data.name, "6" ]
       });
     }
   });
@@ -1145,13 +1138,13 @@ check: function() {
   // available only in browsers with JavaScript 1.7 implementation, but
   // it is deprecated for ES6
 
-  linter.on(&#x22;Identifier&#x22;, function style_scanIterator(data) {
-    if (linter.getOption(&#x22;iterator&#x22;)) {
+  linter.on("Identifier", function style_scanIterator(data) {
+    if (linter.getOption("iterator")) {
       return;
     }
 
-    if (data.name === &#x22;__iterator__&#x22;) {
-      linter.warn(&#x22;W103&#x22;, {
+    if (data.name === "__iterator__") {
+      linter.warn("W103", {
         line: data.line,
         char: data.char,
         data: [ data.name ]
@@ -1162,13 +1155,13 @@ check: function() {
   // Check that all identifiers are using camelCase notation.
   // Exceptions: names like MY_VAR and _myVar.
 
-  linter.on(&#x22;Identifier&#x22;, function style_scanCamelCase(data) {
-    if (!linter.getOption(&#x22;camelcase&#x22;)) {
+  linter.on("Identifier", function style_scanCamelCase(data) {
+    if (!linter.getOption("camelcase")) {
       return;
     }
 
-    if (data.name.replace(/^_+|_+$/g, &#x22;&#x22;).indexOf(&#x22;_&#x22;) &#x3e; -1 &#x26;&#x26; !data.name.match(/^[A-Z0-9_]*$/)) {
-      linter.warn(&#x22;W106&#x22;, {
+    if (data.name.replace(/^_+|_+$/g, "").indexOf("_") &gt; -1 &amp;&amp; !data.name.match(/^[A-Z0-9_]*$/)) {
+      linter.warn("W106", {
         line: data.line,
         char: data.char,
         data: [ data.name ]
@@ -1178,36 +1171,36 @@ check: function() {
 
   // Enforce consistency in style of quoting.
 
-  linter.on(&#x22;String&#x22;, function style_scanQuotes(data) {
-    var quotmark = linter.getOption(&#x22;quotmark&#x22;);
+  linter.on("String", function style_scanQuotes(data) {
+    var quotmark = linter.getOption("quotmark");
     var code;
 
     if (!quotmark) {
       return;
     }
 
-    // If quotmark is set to &#x27;single&#x27; warn about all double-quotes.
+    // If quotmark is set to 'single' warn about all double-quotes.
 
-    if (quotmark === &#x22;single&#x22; &#x26;&#x26; data.quote !== &#x22;&#x27;&#x22;) {
-      code = &#x22;W109&#x22;;
+    if (quotmark === "single" &amp;&amp; data.quote !== "'") {
+      code = "W109";
     }
 
-    // If quotmark is set to &#x27;double&#x27; warn about all single-quotes.
+    // If quotmark is set to 'double' warn about all single-quotes.
 
-    if (quotmark === &#x22;double&#x22; &#x26;&#x26; data.quote !== &#x22;\&#x22;&#x22;) {
-      code = &#x22;W108&#x22;;
+    if (quotmark === "double" &amp;&amp; data.quote !== "\"") {
+      code = "W108";
     }
 
     // If quotmark is set to true, remember the first quotation style
     // and then warn about all others.
 
     if (quotmark === true) {
-      if (!linter.getCache(&#x22;quotmark&#x22;)) {
-        linter.setCache(&#x22;quotmark&#x22;, data.quote);
+      if (!linter.getCache("quotmark")) {
+        linter.setCache("quotmark", data.quote);
       }
 
-      if (linter.getCache(&#x22;quotmark&#x22;) !== data.quote) {
-        code = &#x22;W110&#x22;;
+      if (linter.getCache("quotmark") !== data.quote) {
+        code = "W110";
       }
     }
 
@@ -1219,19 +1212,19 @@ check: function() {
     }
   });
 
-  linter.on(&#x22;Number&#x22;, function style_scanNumbers(data) {
-    if (data.value.charAt(0) === &#x22;.&#x22;) {
+  linter.on("Number", function style_scanNumbers(data) {
+    if (data.value.charAt(0) === ".") {
       // Warn about a leading decimal point.
-      linter.warn(&#x22;W008&#x22;, {
+      linter.warn("W008", {
         line: data.line,
         char: data.char,
         data: [ data.value ]
       });
     }
 
-    if (data.value.substr(data.value.length - 1) === &#x22;.&#x22;) {
+    if (data.value.substr(data.value.length - 1) === ".") {
       // Warn about a trailing decimal point.
-      linter.warn(&#x22;W047&#x22;, {
+      linter.warn("W047", {
         line: data.line,
         char: data.char,
         data: [ data.value ]
@@ -1240,7 +1233,7 @@ check: function() {
 
     if (/^00+/.test(data.value)) {
       // Multiple leading zeroes.
-      linter.warn(&#x22;W046&#x22;, {
+      linter.warn("W046", {
         line: data.line,
         char: data.char,
         data: [ data.value ]
@@ -1250,15 +1243,15 @@ check: function() {
 
   // Warn about script URLs.
 
-  linter.on(&#x22;String&#x22;, function style_scanJavaScriptURLs(data) {
+  linter.on("String", function style_scanJavaScriptURLs(data) {
     var re = /^(?:javascript|jscript|ecmascript|vbscript|livescript)\s*:/i;
 
-    if (linter.getOption(&#x22;scripturl&#x22;)) {
+    if (linter.getOption("scripturl")) {
       return;
     }
 
     if (re.test(data.value)) {
-      linter.warn(&#x22;W107&#x22;, {
+      linter.warn("W107", {
         line: data.line,
         char: data.char
       });
@@ -1277,3 +1270,4 @@ check: function() {
     ]
 </div>
 </div>
+</body></html>
