@@ -65,24 +65,6 @@
 
         <li>
 
-            <a class="apidocElementLiA" href="#apidoc.element.jshint.JSHINT.addModule">
-            function <span class="apidocSignatureSpan">jshint.</span>JSHINT.addModule
-            <span class="apidocSignatureSpan">(func)</span>
-            </a>
-
-        </li>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.jshint.JSHINT.data">
-            function <span class="apidocSignatureSpan">jshint.</span>JSHINT.data
-            <span class="apidocSignatureSpan">()</span>
-            </a>
-
-        </li>
-
-        <li>
-
             <a class="apidocElementLiA" href="#apidoc.element.jshint.name_stack">
             function <span class="apidocSignatureSpan">jshint.</span>name_stack
             <span class="apidocSignatureSpan">()</span>
@@ -92,10 +74,7 @@
 
         <li>
 
-            <a class="apidocElementLiA" href="#apidoc.element.jshint.scope_manager">
-            function <span class="apidocSignatureSpan">jshint.</span>scope_manager
-            <span class="apidocSignatureSpan">(state, predefined, exported, declared)</span>
-            </a>
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan"></span>jshint</span>
 
         </li>
 
@@ -159,26 +138,13 @@
 
     </ol></li>
 
-    <li class="apidocModuleLi"><a href="#apidoc.module.jshint.JSHINT.addModule">module jshint.JSHINT.addModule</a><ol>
+    <li class="apidocModuleLi"><a href="#apidoc.module.jshint.jshint">module jshint.jshint</a><ol>
 
         <li>
 
-            <a class="apidocElementLiA" href="#apidoc.element.jshint.JSHINT.addModule.addModule">
-            function <span class="apidocSignatureSpan">jshint.JSHINT.</span>addModule
-            <span class="apidocSignatureSpan">(func)</span>
-            </a>
-
-        </li>
-
-    </ol></li>
-
-    <li class="apidocModuleLi"><a href="#apidoc.module.jshint.JSHINT.data">module jshint.JSHINT.data</a><ol>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.jshint.JSHINT.data.data">
-            function <span class="apidocSignatureSpan">jshint.JSHINT.</span>data
-            <span class="apidocSignatureSpan">()</span>
+            <a class="apidocElementLiA" href="#apidoc.element.jshint.jshint.JSHINT">
+            function <span class="apidocSignatureSpan">jshint.jshint.</span>JSHINT
+            <span class="apidocSignatureSpan">(s, o, g)</span>
             </a>
 
         </li>
@@ -251,19 +217,6 @@
             <a class="apidocElementLiA" href="#apidoc.element.jshint.name_stack.prototype.set">
             function <span class="apidocSignatureSpan">jshint.name_stack.prototype.</span>set
             <span class="apidocSignatureSpan">(token)</span>
-            </a>
-
-        </li>
-
-    </ol></li>
-
-    <li class="apidocModuleLi"><a href="#apidoc.module.jshint.scope_manager">module jshint.scope_manager</a><ol>
-
-        <li>
-
-            <a class="apidocElementLiA" href="#apidoc.element.jshint.scope_manager.scope_manager">
-            function <span class="apidocSignatureSpan">jshint.</span>scope_manager
-            <span class="apidocSignatureSpan">(state, predefined, exported, declared)</span>
             </a>
 
         </li>
@@ -475,107 +428,6 @@
 
 
     <h2>
-        <a href="#apidoc.element.jshint.JSHINT.addModule" id="apidoc.element.jshint.JSHINT.addModule">
-        function <span class="apidocSignatureSpan">jshint.</span>JSHINT.addModule
-        <span class="apidocSignatureSpan">(func)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">JSHINT.addModule = function (func) {
-  extraModules.push(func);
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
-    </ul>
-
-
-
-    <h2>
-        <a href="#apidoc.element.jshint.JSHINT.data" id="apidoc.element.jshint.JSHINT.data">
-        function <span class="apidocSignatureSpan">jshint.</span>JSHINT.data
-        <span class="apidocSignatureSpan">()</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">JSHINT.data = function () {
-  var data = {
-    functions: [],
-    options: state.option
-  };
-
-  var fu, f, i, j, n, globals;
-
-  if (itself.errors.length) {
-    data.errors = itself.errors;
-  }
-
-  if (state.jsonMode) {
-    data.json = true;
-  }
-
-  var impliedGlobals = state.funct["(scope)"].getImpliedGlobals();
-  if (impliedGlobals.length &gt; 0) {
-    data.implieds = impliedGlobals;
-  }
-
-  if (urls.length &gt; 0) {
-    data.urls = urls;
-  }
-
-  globals = state.funct["(scope)"].getUsedOrDefinedGlobals();
-  if (globals.length &gt; 0) {
-    data.globals = globals;
-  }
-
-  for (i = 1; i &lt; functions.length; i += 1) {
-    f = functions[i];
-    fu = {};
-
-    for (j = 0; j &lt; functionicity.length; j += 1) {
-      fu[functionicity[j]] = [];
-    }
-
-    for (j = 0; j &lt; functionicity.length; j += 1) {
-      if (fu[functionicity[j]].length === 0) {
-        delete fu[functionicity[j]];
-      }
-    }
-
-    fu.name = f["(name)"];
-    fu.param = f["(params)"];
-    fu.line = f["(line)"];
-    fu.character = f["(character)"];
-    fu.last = f["(last)"];
-    fu.lastcharacter = f["(lastcharacter)"];
-
-    fu.metrics = {
-      complexity: f["(metrics)"].ComplexityCount,
-      parameters: f["(metrics)"].arity,
-      statements: f["(metrics)"].statementCount
-    };
-
-    data.functions.push(fu);
-  }
-
-  var unuseds = state.funct["(scope)"].getUnuseds();
-  if (unuseds.length &gt; 0) {
-    data.unused = unuseds;
-  }
-
-  for (n in member) {
-    if (typeof member[n] === "number") {
-      data.member = member;
-      break;
-    }
-  }
-
-  return data;
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
-    </ul>
-
-
-
-    <h2>
         <a href="#apidoc.element.jshint.name_stack" id="apidoc.element.jshint.name_stack">
         function <span class="apidocSignatureSpan">jshint.</span>name_stack
         <span class="apidocSignatureSpan">()</span>
@@ -589,180 +441,6 @@
     </ul>
 
 
-
-    <h2>
-        <a href="#apidoc.element.jshint.scope_manager" id="apidoc.element.jshint.scope_manager">
-        function <span class="apidocSignatureSpan">jshint.</span>scope_manager
-        <span class="apidocSignatureSpan">(state, predefined, exported, declared)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">scope_manager = function (state, predefined, exported, declared) {
-
-  var _current;
-  var _scopeStack = [];
-
-  function _newScope(type) {
-    _current = {
-      "(labels)": Object.create(null),
-      "(usages)": Object.create(null),
-      "(breakLabels)": Object.create(null),
-      "(parent)": _current,
-      "(type)": type,
-      "(params)": (type === "functionparams" || type === "catchparams") ? [] : null
-    };
-    _scopeStack.push(_current);
-  }
-
-  _newScope("global");
-  _current["(predefined)"] = predefined;
-
-  var _currentFunctBody = _current; // this is the block after the params = function
-
-  var usedPredefinedAndGlobals = Object.create(null);
-  var impliedGlobals = Object.create(null);
-  var unuseds = [];
-  var emitter = new events.EventEmitter();
-
-  function warning(code, token) {
-    emitter.emit("warning", {
-      code: code,
-      token: token,
-      data: _.slice(arguments, 2)
-    });
-  }
-
-  function error(code, token) {
-    emitter.emit("warning", {
-      code: code,
-      token: token,
-      data: _.slice(arguments, 2)
-    });
-  }
-
-  function _setupUsages(labelName) {
-    if (!_current["(usages)"][labelName]) {
-      _current["(usages)"][labelName] = {
-        "(modified)": [],
-        "(reassigned)": [],
-        "(tokens)": []
-      };
-    }
-  }
-
-  var _getUnusedOption = function(unused_opt) {
-    if (unused_opt === undefined) {
-      unused_opt = state.option.unused;
-    }
-
-    if (unused_opt === true) {
-      unused_opt = "last-param";
-    }
-
-    return unused_opt;
-  };
-
-  var _warnUnused = function(name, tkn, type, unused_opt) {
-    var line = tkn.line;
-    var chr  = tkn.from;
-    var raw_name = tkn.raw_text || name;
-
-    unused_opt = _getUnusedOption(unused_opt);
-
-    var warnable_types = {
-      "vars": ["var"],
-      "last-param": ["var", "param"],
-      "strict": ["var", "param", "last-param"]
-    };
-
-    if (unused_opt) {
-      if (warnable_types[unused_opt] &amp;&amp; warnable_types[unused_opt].indexOf(type) !== -1) {
-        warning("W098", { line: line, from: chr }, raw_name);
-      }
-    }
-
-    // inconsistent - see gh-1894
-    if (unused_opt || type === "var") {
-      unuseds.push({
-        name: name,
-        line: line,
-        character: chr
-      });
-    }
-  };
-
-<span class="apidocCodeCommentSpan">  /**
-   * Checks the current scope for unused identifiers
-   */
-</span>  function _checkForUnused() {
-    // function params are handled specially
-    // assume that parameters are the only thing declared in the param scope
-    if (_current["(type)"] === "functionparams") {
-      _checkParams();
-      return;
-    }
-    var curentLabels = _current["(labels)"];
-    for (var labelName in curentLabels) {
-      if (curentLabels[labelName]) {
-        if (curentLabels[labelName]["(type)"] !== "exception" &amp;&amp;
-          curentLabels[labelName]["(unused)"]) {
-          _warnUnused(labelName, curentLabels[labelName]["(token)"], "var");
-        }
-      }
-    }
-  }
-
-  /**
-   * Checks the current scope for unused parameters
-   * Must be called in a function parameter scope
-   */
-  function _checkParams() {
-    var params = _current["(params)"];
-
-    if (!params) {
-      return;
-    }
-
-    var param = params.pop();
-    var unused_opt;
-
-    while (param) {
-      var label = _current["(labels)"][param];
-
-      unused_opt = _getUnusedOption(state.funct["(unusedOption)"]);
-
-      // 'undefined' is a special case for (function(window, undefined) { ... })();
-      // patterns.
-      if (param === "undefined")
-        return;
-
-      if (label["(unused)"]) {
-        _warnUnused(param, label["(token)"], "param", state.funct["(unusedOption)"]);
-      } else if (unused_opt === "last-param") {
-        return;
-      }
-
-      param = params.pop();
-    }
-  }
-
-  /**
-   * Finds the relevant label's scope, searching from nearest outwards
-   * @returns {Object} the scope the label was found in
-   */
-  function _getLabel(labelName) {
-    for (var i = _scopeStack.length - 1 ; i &gt;= 0; --i) {
-      var scopeLabels = _scopeStack[i]["(labels)"];
-      if (scopeLabels[labelName]) {
-        return scopeLabels;
-      }
-    }
-  }
-
-  function usedSoFarInCurrentFunction(labelName) {
-    // used so far in ...</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
-    </ul>
 
 
 
@@ -972,7 +650,23 @@
     <li>description and source-code<pre class="apidocCodePre">addModule = function (func) {
   extraModules.push(func);
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+};
+
+// Modules.
+itself.addModule = function(func) {
+  extraModules.push(func);
+};
+
+itself.<span class="apidocCodeKeywordSpan">addModule</span>(style.register);
+
+// Data summary.
+itself.data = function() {
+  var data = {
+    functions: [],
+    options: state.option
+  };
+...</pre></li>
     </ul>
 
 
@@ -1250,110 +944,189 @@
 </div>
 
 <div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.jshint.JSHINT.addModule" id="apidoc.module.jshint.JSHINT.addModule">module jshint.JSHINT.addModule</a></h1>
+<h1><a href="#apidoc.module.jshint.jshint" id="apidoc.module.jshint.jshint">module jshint.jshint</a></h1>
 
 
     <h2>
-        <a href="#apidoc.element.jshint.JSHINT.addModule.addModule" id="apidoc.element.jshint.JSHINT.addModule.addModule">
-        function <span class="apidocSignatureSpan">jshint.JSHINT.</span>addModule
-        <span class="apidocSignatureSpan">(func)</span>
+        <a href="#apidoc.element.jshint.jshint.JSHINT" id="apidoc.element.jshint.jshint.JSHINT">
+        function <span class="apidocSignatureSpan">jshint.jshint.</span>JSHINT
+        <span class="apidocSignatureSpan">(s, o, g)</span>
         </a>
     </h2>
     <ul>
-    <li>description and source-code<pre class="apidocCodePre">addModule = function (func) {
-  extraModules.push(func);
-}</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
-    </ul>
+    <li>description and source-code<pre class="apidocCodePre">JSHINT = function (s, o, g) {
+  var x, reIgnoreStr, reIgnore;
+  var optionKeys;
+  var newOptionObj = {};
+  var newIgnoredObj = {};
 
+  o = _.clone(o);
+  state.reset();
 
-</div>
-
-<div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.jshint.JSHINT.data" id="apidoc.module.jshint.JSHINT.data">module jshint.JSHINT.data</a></h1>
-
-
-    <h2>
-        <a href="#apidoc.element.jshint.JSHINT.data.data" id="apidoc.element.jshint.JSHINT.data.data">
-        function <span class="apidocSignatureSpan">jshint.JSHINT.</span>data
-        <span class="apidocSignatureSpan">()</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">data = function () {
-  var data = {
-    functions: [],
-    options: state.option
-  };
-
-  var fu, f, i, j, n, globals;
-
-  if (itself.errors.length) {
-    data.errors = itself.errors;
+  if (o &amp;&amp; o.scope) {
+    JSHINT.scope = o.scope;
+  } else {
+    JSHINT.errors = [];
+    JSHINT.undefs = [];
+    JSHINT.internals = [];
+    JSHINT.blacklist = {};
+    JSHINT.scope = "(main)";
   }
 
-  if (state.jsonMode) {
-    data.json = true;
+  predefined = Object.create(null);
+  combine(predefined, vars.ecmaIdentifiers[3]);
+  combine(predefined, vars.reservedVars);
+
+  combine(predefined, g || {});
+
+  declared = Object.create(null);
+  var exported = Object.create(null); // Variables that live outside the current file
+
+  function each(obj, cb) {
+    if (!obj)
+      return;
+
+    if (!Array.isArray(obj) &amp;&amp; typeof obj === "object")
+      obj = Object.keys(obj);
+
+    obj.forEach(cb);
   }
 
-  var impliedGlobals = state.funct["(scope)"].getImpliedGlobals();
-  if (impliedGlobals.length &gt; 0) {
-    data.implieds = impliedGlobals;
-  }
+  if (o) {
+    each(o.predef || null, function(item) {
+      var slice, prop;
 
-  if (urls.length &gt; 0) {
-    data.urls = urls;
-  }
+      if (item[0] === "-") {
+        slice = item.slice(1);
+        JSHINT.blacklist[slice] = slice;
+        // remove from predefined if there
+        delete predefined[slice];
+      } else {
+        prop = Object.getOwnPropertyDescriptor(o.predef, item);
+        predefined[item] = prop ? prop.value : false;
+      }
+    });
 
-  globals = state.funct["(scope)"].getUsedOrDefinedGlobals();
-  if (globals.length &gt; 0) {
-    data.globals = globals;
-  }
+    each(o.exported || null, function(item) {
+      exported[item] = true;
+    });
 
-  for (i = 1; i &lt; functions.length; i += 1) {
-    f = functions[i];
-    fu = {};
+    delete o.predef;
+    delete o.exported;
 
-    for (j = 0; j &lt; functionicity.length; j += 1) {
-      fu[functionicity[j]] = [];
-    }
-
-    for (j = 0; j &lt; functionicity.length; j += 1) {
-      if (fu[functionicity[j]].length === 0) {
-        delete fu[functionicity[j]];
+    optionKeys = Object.keys(o);
+    for (x = 0; x &lt; optionKeys.length; x++) {
+      if (/^-W\d{3}$/g.test(optionKeys[x])) {
+        newIgnoredObj[optionKeys[x].slice(1)] = true;
+      } else {
+        var optionKey = optionKeys[x];
+        newOptionObj[optionKey] = o[optionKey];
       }
     }
-
-    fu.name = f["(name)"];
-    fu.param = f["(params)"];
-    fu.line = f["(line)"];
-    fu.character = f["(character)"];
-    fu.last = f["(last)"];
-    fu.lastcharacter = f["(lastcharacter)"];
-
-    fu.metrics = {
-      complexity: f["(metrics)"].ComplexityCount,
-      parameters: f["(metrics)"].arity,
-      statements: f["(metrics)"].statementCount
-    };
-
-    data.functions.push(fu);
   }
 
-  var unuseds = state.funct["(scope)"].getUnuseds();
-  if (unuseds.length &gt; 0) {
-    data.unused = unuseds;
+  state.option = newOptionObj;
+  state.ignored = newIgnoredObj;
+
+  state.option.indent = state.option.indent || 4;
+  state.option.maxerr = state.option.maxerr || 50;
+
+  indent = 1;
+
+  var scopeManagerInst = scopeManager(state, predefined, exported, declared);
+  scopeManagerInst.on("warning", function(ev) {
+    warning.apply(null, [ ev.code, ev.token].concat(ev.data));
+  });
+
+  scopeManagerInst.on("error", function(ev) {
+    error.apply(null, [ ev.code, ev.token ].concat(ev.data));
+  });
+
+  state.funct = functor("(global)", null, {
+    "(global)"    : true,
+    "(scope)"     : scopeManagerInst,
+    "(comparray)" : arrayComprehension(),
+    "(metrics)"   : createMetrics(state.tokens.next)
+  });
+
+  functions = [state.funct];
+  urls = [];
+  stack = null;
+  member = {};
+  membersOnly = null;
+  inblock = false;
+  lookahead = [];
+
+  if (!isString(s) &amp;&amp; !Array.isArray(s)) {
+    errorAt("E004", 0);
+    return false;
   }
 
-  for (n in member) {
-    if (typeof member[n] === "number") {
-      data.member = member;
-      break;
+  api = {
+    get isJSON() {
+      return state.jsonMode;
+    },
+
+    getOption: function(name) {
+      return state.option[name] || null;
+    },
+
+    getCache: function(name) {
+      return state.cache[name];
+    },
+
+    setCache: function(name, value) {
+      state.cache[name] = value;
+    },
+
+    warn: function(code, data) {
+      warningAt.apply(null, [ code, data.line, data.char ].concat(data.data));
+    },
+
+    on: function(names, listener) {
+      names.split(" ").forEach(function(name) {
+        emitter.on(name, listener);
+      }.bind(this));
     }
+  };
+
+  emitter.removeAllListeners();
+  (extraModules || []).forEach(function(func) {
+    func(api);
+  });
+
+  state.tokens.prev = state.tokens.curr = state.tokens.next = state.syntax["(begin)"];
+
+  if (o &amp;&amp; o.ignoreDelimiters) {
+
+    if (!Array.isArray(o.ignoreDelimiters)) {
+      o.ignoreDelimiters = [o.ignoreDelimiters];
+    }
+
+    o.ignoreDelimiters.forEach(function(delimiterPair) {
+      if (!delimiterPair.start || !delimiterPair.end)
+          return;
+
+      reIgnoreStr = escapeRegex(delimiterPair.start) +
+                    "[\\s\\S]*?" +
+                    escapeRegex(delimiterPair.end);
+
+      reIgnore = new RegExp(reIgnoreStr, "ig");
+
+      s = s.replace(reIgnore, function(match) {
+        return match.replace(/./g, " ");
+      });
+    });
   }
 
-  return data;
-}</pre></li>
+  lex = new Lexer(s);
+
+  lex.on("warning", function(ev) {
+    warningAt.apply(null, [ ev.code, ev.line, ev.character].concat(ev.data));
+  });
+
+  lex.on("error", function(ev) {
+    errorAt.apply(null ...</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
@@ -1477,7 +1250,23 @@
 
   return prefix + nameToken.value;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  isArrow = options.type === "arrow";
+  ignoreLoopFunc = options.ignoreLoopFunc;
+}
+
+state.option = Object.create(state.option);
+state.ignored = Object.create(state.ignored);
+
+state.funct = functor(name || state.nameStack.<span class="apidocCodeKeywordSpan">infer</span>(), state.tokens.next, {
+  "(statement)": statement,
+  "(context)":   state.funct,
+  "(arrow)":     isArrow,
+  "(generator)": isGenerator
+});
+
+f = state.funct;
+...</pre></li>
     </ul>
 
 
@@ -1493,21 +1282,20 @@
   this._stack.pop();
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-},
+      }
+    }
+  }
+  if (isLetExpr) {
+    state.funct["(scope)"].unstack();
+  }
 
-pushContext: function(ctxType) {
-  this.context.push({ type: ctxType });
-},
+  state.nameStack.<span class="apidocCodeKeywordSpan">pop</span>();
 
-popContext: function() {
-  return this.context.<span class="apidocCodeKeywordSpan">pop</span>();
-},
+  return left;
+}
 
-isContext: function(context) {
-  return this.context.length &gt; 0 &amp;&amp; this.context[this.context.length - 1] === context;
-},
 
-currentContext: function() {
+// Functions for conformance of style.
 ...</pre></li>
     </ul>
 
@@ -1524,20 +1312,21 @@ currentContext: function() {
   this._stack.push(null);
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-// environment state.
+  a: a,
+  b: b,
+  c: c,
+  d: d
+};
 
-function asyncTrigger() {
-  var _checks = [];
+w.reason = supplant(msg.desc, w);
+JSHINT.errors.<span class="apidocCodeKeywordSpan">push</span>(w);
 
-  return {
-push: function(fn) {
-  _checks.<span class="apidocCodeKeywordSpan">push</span>(fn);
-},
+removeIgnoredMessages();
 
-check: function() {
-  for (var check = 0; check &lt; _checks.length; ++check) {
-    _checks[check]();
-  }
+if (JSHINT.errors.length &gt;= state.option.maxerr)
+  quit("E043", t);
+
+return w;
 ...</pre></li>
     </ul>
 
@@ -1553,188 +1342,23 @@ check: function() {
     <li>description and source-code<pre class="apidocCodePre">set = function (token) {
   this._stack[this.length - 1] = token;
 }</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
-    </ul>
+    <li>example usage<pre class="apidocCodePre">...
+}
 
-
-</div>
-
-<div class="apidocSectionDiv">
-<h1><a href="#apidoc.module.jshint.scope_manager" id="apidoc.module.jshint.scope_manager">module jshint.scope_manager</a></h1>
-
-
-    <h2>
-        <a href="#apidoc.element.jshint.scope_manager.scope_manager" id="apidoc.element.jshint.scope_manager.scope_manager">
-        function <span class="apidocSignatureSpan">jshint.</span>scope_manager
-        <span class="apidocSignatureSpan">(state, predefined, exported, declared)</span>
-        </a>
-    </h2>
-    <ul>
-    <li>description and source-code<pre class="apidocCodePre">scope_manager = function (state, predefined, exported, declared) {
-
-  var _current;
-  var _scopeStack = [];
-
-  function _newScope(type) {
-    _current = {
-      "(labels)": Object.create(null),
-      "(usages)": Object.create(null),
-      "(breakLabels)": Object.create(null),
-      "(parent)": _current,
-      "(type)": type,
-      "(params)": (type === "functionparams" || type === "catchparams") ? [] : null
-    };
-    _scopeStack.push(_current);
+if (left.id === ".") {
+  if (!left.left || left.left.value === "arguments" &amp;&amp; !state.isStrict()) {
+    warning("E031", assignToken);
   }
 
-  _newScope("global");
-  _current["(predefined)"] = predefined;
-
-  var _currentFunctBody = _current; // this is the block after the params = function
-
-  var usedPredefinedAndGlobals = Object.create(null);
-  var impliedGlobals = Object.create(null);
-  var unuseds = [];
-  var emitter = new events.EventEmitter();
-
-  function warning(code, token) {
-    emitter.emit("warning", {
-      code: code,
-      token: token,
-      data: _.slice(arguments, 2)
-    });
-  }
-
-  function error(code, token) {
-    emitter.emit("warning", {
-      code: code,
-      token: token,
-      data: _.slice(arguments, 2)
-    });
-  }
-
-  function _setupUsages(labelName) {
-    if (!_current["(usages)"][labelName]) {
-      _current["(usages)"][labelName] = {
-        "(modified)": [],
-        "(reassigned)": [],
-        "(tokens)": []
-      };
-    }
-  }
-
-  var _getUnusedOption = function(unused_opt) {
-    if (unused_opt === undefined) {
-      unused_opt = state.option.unused;
-    }
-
-    if (unused_opt === true) {
-      unused_opt = "last-param";
-    }
-
-    return unused_opt;
-  };
-
-  var _warnUnused = function(name, tkn, type, unused_opt) {
-    var line = tkn.line;
-    var chr  = tkn.from;
-    var raw_name = tkn.raw_text || name;
-
-    unused_opt = _getUnusedOption(unused_opt);
-
-    var warnable_types = {
-      "vars": ["var"],
-      "last-param": ["var", "param"],
-      "strict": ["var", "param", "last-param"]
-    };
-
-    if (unused_opt) {
-      if (warnable_types[unused_opt] &amp;&amp; warnable_types[unused_opt].indexOf(type) !== -1) {
-        warning("W098", { line: line, from: chr }, raw_name);
-      }
-    }
-
-    // inconsistent - see gh-1894
-    if (unused_opt || type === "var") {
-      unuseds.push({
-        name: name,
-        line: line,
-        character: chr
-      });
-    }
-  };
-
-<span class="apidocCodeCommentSpan">  /**
-   * Checks the current scope for unused identifiers
-   */
-</span>  function _checkForUnused() {
-    // function params are handled specially
-    // assume that parameters are the only thing declared in the param scope
-    if (_current["(type)"] === "functionparams") {
-      _checkParams();
-      return;
-    }
-    var curentLabels = _current["(labels)"];
-    for (var labelName in curentLabels) {
-      if (curentLabels[labelName]) {
-        if (curentLabels[labelName]["(type)"] !== "exception" &amp;&amp;
-          curentLabels[labelName]["(unused)"]) {
-          _warnUnused(labelName, curentLabels[labelName]["(token)"], "var");
-        }
-      }
-    }
-  }
-
-  /**
-   * Checks the current scope for unused parameters
-   * Must be called in a function parameter scope
-   */
-  function _checkParams() {
-    var params = _current["(params)"];
-
-    if (!params) {
-      return;
-    }
-
-    var param = params.pop();
-    var unused_opt;
-
-    while (param) {
-      var label = _current["(labels)"][param];
-
-      unused_opt = _getUnusedOption(state.funct["(unusedOption)"]);
-
-      // 'undefined' is a special case for (function(window, undefined) { ... })();
-      // patterns.
-      if (param === "undefined")
-        return;
-
-      if (label["(unused)"]) {
-        _warnUnused(param, label["(token)"], "param", state.funct["(unusedOption)"]);
-      } else if (unused_opt === "last-param") {
-        return;
-      }
-
-      param = params.pop();
-    }
-  }
-
-  /**
-   * Finds the relevant label's scope, searching from nearest outwards
-   * @returns {Object} the scope the label was found in
-   */
-  function _getLabel(labelName) {
-    for (var i = _scopeStack.length - 1 ; i &gt;= 0; --i) {
-      var scopeLabels = _scopeStack[i]["(labels)"];
-      if (scopeLabels[labelName]) {
-        return scopeLabels;
-      }
-    }
-  }
-
-  function usedSoFarInCurrentFunction(labelName) {
-    // used so far in ...</pre></li>
-    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+  state.nameStack.<span class="apidocCodeKeywordSpan">set</span>(state.tokens.prev);
+  return true;
+} else if (left.id === "{" || left.id === "[") {
+  if (!allowDestructuring || !left.destructAssign) {
+    if (left.id === "{" || !left.left) {
+      warning("E031", assignToken);
+    } else if (left.left.value === "arguments" &amp;&amp; !state.isStrict()) {
+      warning("E031", assignToken);
+...</pre></li>
     </ul>
 
 
